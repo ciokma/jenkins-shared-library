@@ -21,10 +21,5 @@ def call(String id = 'No Data') {
   def jsonSlurper = new JsonSlurper()
   def secretSafeResponse = jsonSlurper.parseText(normalizedResponse)
   echo "${secretSafeResponse.Text}"
-  
-  def response = sh(
-      script: 'curl --insecure -X GET https://hjwc4zbudb.execute-api.us-east-1.amazonaws.com/Prod/hello',
-      returnStdout: true
-  )
-  echo "${response}"
+
 }
