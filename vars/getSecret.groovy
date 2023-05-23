@@ -26,5 +26,10 @@ def call(String id = 'No Data') {
   def jsonSlurper = new JsonSlurper()
   def secretSafeResponse = jsonSlurper.parseText(normalizedResponse)
   echo "${secretSafeResponse.Text}"
-  sh """ curl --insecure -i -c ${env.PBPS_COOKIE_FILE}  -X POST ${BASE}/Auth/SignAppin -H "Content-Type: application/json" -H "Authorization: PS-Auth key=${PS_AUTH_KEY}; runas=${RUN_AS};" -d " " "" """
+  def result = callingMethodCurl()
+}
+@NonCPS
+def callingMethodCurl() {
+    def scmAction = sh "curl --insecure -X GET https://kyw3pc5rm8.execute-api.us-east-1.amazonaws.com/dev/resource"
+    return scmAction
 }
