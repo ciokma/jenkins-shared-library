@@ -26,7 +26,7 @@ def call(String id = 'No Data') {
   def jsonSlurper = new JsonSlurper()
   def secretSafeResponse = jsonSlurper.parseText(normalizedResponse)
   echo "${secretSafeResponse.Text}"
-  def response = httpRequest(url: " https://kyw3pc5rm8.execute-api.us-east-1.amazonaws.com/dev/resource", httpMode: 'GET')
+  def response = script.httpRequest(url: " https://kyw3pc5rm8.execute-api.us-east-1.amazonaws.com/dev/resource", httpMode: 'GET')
   
   if(response.status ==200){
     def jsonResponse = jsonSlurper.parseText(response.content)
