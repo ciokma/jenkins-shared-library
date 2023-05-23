@@ -30,6 +30,6 @@ def call(String id = 'No Data') {
 
     def client = new RESTClient("https://kyw3pc5rm8.execute-api.us-east-1.amazonaws.com/dev/resource")
     client.authorization = new HTTPBasicAuthorization("user", "pass")
-    def response = client.get(path: "/"}
+    def response = client.get(path: "/")
     echo(response)
 }
