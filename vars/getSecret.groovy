@@ -1,5 +1,7 @@
 #!/usr/bin/env groovy
 
+import groovy.json.JsonSlurper
+
 def call(String response = 'No Data') {
   echo "Request received, ${response}"
   String normalizedResponse = response.replace("\\", "/")
