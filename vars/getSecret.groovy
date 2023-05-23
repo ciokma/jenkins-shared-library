@@ -30,8 +30,6 @@ def call(String id = 'No Data') {
 
     def client = new RESTClient("https://kyw3pc5rm8.execute-api.us-east-1.amazonaws.com/dev/resource")
     client.authorization = new HTTPBasicAuthorization("user", "pass")
-    def response = client.get(path: "/",headers: ['Content-Type': 'application/json']) {
-        json description: "string", mode: "DEFAULT", name: "string", start_time: "2015-11-05T13:26:40.626Z", tags: [ "string" ] 
-    }
+    def response = client.get(path: "/"}
     echo(response)
 }
