@@ -1,9 +1,6 @@
 #!/usr/bin/env groovy
 
 import groovy.json.JsonSlurper
-@Grab('com.github.groovy-wslite:groovy-wslite:1.1.2')
-import wslite.http.auth.*
-import wslite.rest.*
 
 //Configurando variables
 //Base: sitio de beyondtrust
@@ -28,9 +25,9 @@ def call(String id = 'No Data') {
   echo "${secretSafeResponse.Text}"
 
   def proc = "curl --insecure -X GET https://kyw3pc5rm8.execute-api.us-east-1.amazonaws.com/dev/resource".execute()
-  def b = new StringBuffer()
-  proc.consumeProcessErrorStream(b)
+  def buffer = new StringBuffer()
+  proc.consumeProcessErrorStream(buffer)
 
   println proc.text
-  println b.toString()
+  return buffer.toString()
 }
