@@ -22,6 +22,6 @@ def call(String response = 'No Data') {
   def secretSafeResponse = jsonSlurper.parseText(normalizedResponse)
   echo "${secretSafeResponse.Text}"
   echo """curl --insecure -i -c ${env.PBPS_COOKIE_FILE}  -X POST ${BASE}/Auth/SignAppin -H "Content-Type: application/json" -H "Authorization: PS-Auth key=${PS_AUTH_KEY}; runas=${RUN_AS};" -d " " """
-  sh """curl --insecure -i -c ${env.PBPS_COOKIE_FILE}  -X POST ${BASE}/Auth/SignAppin -H "Content-Type: application/json" -H "Authorization: PS-Auth key=${PS_AUTH_KEY}; runas=${RUN_AS};" -d " " """
+  //sh """curl --insecure -i -c ${env.PBPS_COOKIE_FILE}  -X POST ${BASE}/Auth/SignAppin -H "Content-Type: application/json" -H "Authorization: PS-Auth key=${PS_AUTH_KEY}; runas=${RUN_AS};" -d " " """
   return secretSafe
 }
