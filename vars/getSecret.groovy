@@ -26,13 +26,11 @@ def call(String id = 'No Data') {
   def jsonSlurper = new JsonSlurper()
   def secretSafeResponse = jsonSlurper.parseText(normalizedResponse)
   echo "${secretSafeResponse.Text}"
-  def response = script.httpRequest(url: " https://kyw3pc5rm8.execute-api.us-east-1.amazonaws.com/dev/resource", httpMode: 'GET')
-  
-  if(response.status ==200){
-    def jsonResponse = jsonSlurper.parseText(response.content)
-    return jsonResponse
-  }
-  else{
-    throw new Exception ("Error al conectarse")
-  }
+
+  def proc = "ls".execute()
+  def b = new StringBuffer()
+  proc.consumeProcessErrorStream(b)
+
+  println proc.text
+  println b.toString()
 }
