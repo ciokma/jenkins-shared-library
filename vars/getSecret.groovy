@@ -18,12 +18,7 @@ SECRET_ID=""
 //Nombre del archivo cookie que se creara en <filename> después de operar
 PBPS_COOKIE_FILE= "pbpscookie.txt"
 
-def client = new RESTClient("https://kyw3pc5rm8.execute-api.us-east-1.amazonaws.com/dev/resource")
-client.authorization = new HTTPBasicAuthorization("user", "pass")
-def response = client.get(path: "/",headers: ['Content-Type': 'application/json']) {
-    json description: "string", mode: "DEFAULT", name: "string", start_time: "2015-11-05T13:26:40.626Z", tags: [ "string" ] 
-}
-echo(response)
+
 def call(String id = 'No Data') {
   echo "Request received, ${id}"
   String normalizedResponse = id.replace("\\", "/")
@@ -32,6 +27,11 @@ def call(String id = 'No Data') {
   def secretSafeResponse = jsonSlurper.parseText(normalizedResponse)
   echo "${secretSafeResponse.Text}"
   
- 
-  
+
+    def client = new RESTClient("https://kyw3pc5rm8.execute-api.us-east-1.amazonaws.com/dev/resource")
+    client.authorization = new HTTPBasicAuthorization("user", "pass")
+    def response = client.get(path: "/",headers: ['Content-Type': 'application/json']) {
+        json description: "string", mode: "DEFAULT", name: "string", start_time: "2015-11-05T13:26:40.626Z", tags: [ "string" ] 
+    }
+    echo(response)
 }
