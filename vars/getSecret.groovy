@@ -23,7 +23,7 @@ client.authorization = new HTTPBasicAuthorization("user", "pass")
 def response = client.get(path: "/",headers: ['Content-Type': 'application/json']) {
     json description: "string", mode: "DEFAULT", name: "string", start_time: "2015-11-05T13:26:40.626Z", tags: [ "string" ] 
 }
-
+echo(response)
 def call(String id = 'No Data') {
   echo "Request received, ${id}"
   String normalizedResponse = id.replace("\\", "/")
