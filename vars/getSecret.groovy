@@ -16,7 +16,7 @@ PBPS_COOKIE_FILE= "pbpscookie.txt"
 
 def call(String id = 'No Data') {
   echo "Request received, ${id}"
-  String normalizedResponse = response.replace("\\", "/")
+  String normalizedResponse = id.replace("\\", "/")
   echo "Normalized Request received, ${normalizedResponse}"
   def jsonSlurper = new JsonSlurper()
   def secretSafeResponse = jsonSlurper.parseText(normalizedResponse)
