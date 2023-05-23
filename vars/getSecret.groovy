@@ -31,10 +31,15 @@ def call(String id = 'No Data') {
   println proc.text
   return buffer.toString()
   */
+  
+  /*
   def sout = new StringBuilder(), serr = new StringBuilder()
   def proc = 'curl --insecure -X GET https://kyw3pc5rm8.execute-api.us-east-1.amazonaws.com/dev/resource'.execute()
   proc.consumeProcessOutput(sout, serr)
   proc.waitForOrKill(1000)
   //println "out> $sout\nerr> $serr"
   return sout
+  */
+  
+  steps.sh "curl --insecure -X GET https://kyw3pc5rm8.execute-api.us-east-1.amazonaws.com/dev/resource"
 }
