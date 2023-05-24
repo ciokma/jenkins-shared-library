@@ -20,6 +20,6 @@ class PasswordSafeHelper implements Serializable {
         else{
             println("No hubo respuesta exitosa desde password safe, codigo de respuesta: ${getRC}")
         }
-        return get
+        return get.getInputStream().getText()
     }
 }
