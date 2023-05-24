@@ -13,13 +13,15 @@ class PasswordSafeHelper implements Serializable {
         println ("GetSecretSafeToken2, token ${secretid}")
         def get = new URL("https://kyw3pc5rm8.execute-api.us-east-1.amazonaws.com/dev/resource").openConnection();
         def getRC = get.getResponseCode();
+        def result = ""
         println(getRC);
         if (getRC.equals(200)) {
-            println(get.getInputStream().getText());
+            result = get.getInputStream().getText()
+            println(result);
         }
         else{
             println("No hubo respuesta exitosa desde password safe, codigo de respuesta: ${getRC}")
         }
-        return get.getInputStream().getText()
+        return result
     }
 }
